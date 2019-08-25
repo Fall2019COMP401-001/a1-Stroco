@@ -28,10 +28,9 @@ public class A1Novice {
 				double price = scan.nextDouble();
 				// calculates total price based on items bought
 				total = amount*price + total;
-				String.format("%.2f", total);
 				// print results
 			}
-			System.out.println(fname + lname + ": " + total);
+			System.out.println(fname + lname + ": " + String.format("%.2f", total));
 			
 			}
 		}
