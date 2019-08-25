@@ -29,9 +29,8 @@ public class A1Novice {
 				// calculates total price based on items bought
 				total = amount*price + total;
 				// print results
-				System.out.println(fname + lname + ":" + total);
 			}
-			
+			System.out.println(fname + lname + ":" + total);
 			
 			}
 		}
