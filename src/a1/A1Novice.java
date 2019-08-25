@@ -30,7 +30,7 @@ public class A1Novice {
 				total = amount*price + total;
 				// print results
 			}
-			System.out.println(fname + lname + ":" + total);
+			System.out.println(fname + lname + ": " + total);
 			
 			}
 		}
