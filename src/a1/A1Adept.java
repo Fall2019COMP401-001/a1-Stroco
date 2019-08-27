@@ -27,8 +27,10 @@ public class A1Adept {
 		// create an array to store each item along with their properties (name and price)
 		ItemStuff storeItems[] = new ItemStuff[itemcount];
 		for (int i=0; i<itemcount; i++) {
-			storeItems[i].foodies = scan.next();
-			storeItems[i].price = scan.nextDouble();
+			String itemname = scan.next();
+			double priceitem = scan.nextDouble();
+			storeItems[i].foodies = itemname;
+			storeItems[i].price = priceitem;
 		}
 		// create a count for the number of customers
 		int peoples = scan.nextInt();
