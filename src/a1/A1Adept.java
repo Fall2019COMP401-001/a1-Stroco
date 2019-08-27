@@ -19,16 +19,14 @@ public class A1Adept {
 			double totalPrice = 0;
 		}
 		// set initial value for "biggest" and "average" to be used later
-		double biggest = 0;
+		double biggest = Double.MIN_VALUE;
 		double average = 0;
-		double smallest = 999999;
+		double smallest = Double.MAX_VALUE;
 		// create count of how many items are in the store
 		int itemcount = scan.nextInt();
 		// create an array to store each item along with their properties (name and price)
 		ItemStuff storeItems[] = new ItemStuff[itemcount];
 		for (int i=0; i<itemcount; i++) {
-			storeItems[i].foodies = "rawr";
-			storeItems[i].price = 0;
 			storeItems[i].foodies = scan.next();
 			storeItems[i].price = scan.nextDouble();
 		}
