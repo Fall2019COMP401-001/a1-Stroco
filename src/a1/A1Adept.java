@@ -21,6 +21,7 @@ public class A1Adept {
 		// set initial value for "biggest" and "average" to be used later
 		double biggest = 0;
 		double average = 0;
+		double smallest = 999999;
 		// create count of how many items are in the store
 		int itemcount = scan.nextInt();
 		// create an array to store each item along with their properties (name and price)
@@ -57,13 +58,20 @@ public class A1Adept {
 			if (custItems[j].totalPrice > biggest) {
 				biggest = custItems[j].totalPrice;
 			// finds the lowest amount spent
-			} else if (custItems[j].totalPrice < biggest) {
-				double smallest = custItems[j].totalPrice;
+			} 
+			if (custItems[j].totalPrice < smallest) {
+				 smallest = custItems[j].totalPrice;
 			}
-		
 		}
-
+for (int z=0; z<peoples; z++) {
+	if (biggest == custItems[z].totalPrice) {
+		System.out.println("Biggest: " + custItems[z].fname + "" + custItems[z].lname + "(" + custItems[z].totalPrice + ")");
+	} 
+	if (smallest == custItems[z].totalPrice) {
+		System.out.println("Smallest: " + custItems[z].fname + "" + custItems[z].lname + "(" + custItems[z].totalPrice + ")");
+	}
+}
+// figure out how to correspond most money spent and least money spent to a customer
 System.out.println("Average: " + average/peoples);
-
 	}
 };
