@@ -67,7 +67,8 @@ public class A1Adept {
 			if (custItems[j].totalPrice > biggest) {
 				biggest = custItems[j].totalPrice;
 				a = j;
-			} else if (custItems[j].totalPrice < smallest) {
+			} 
+			if (custItems[j].totalPrice < smallest) {
 				smallest = custItems[j].totalPrice;
 				b = j;
 			}
