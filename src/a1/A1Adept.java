@@ -61,7 +61,7 @@ public class A1Adept {
 		for (int j = 0; j<peoples; j++) {
 			average += custItems[j].totalPrice;
 		}
-	System.out.println("Average: " + String.format("%.2f", average/peoples));
+	
 		
 	for (int j = 0; j<peoples; j++ ) {
 			if (custItems[j].totalPrice > biggest) {
@@ -74,5 +74,6 @@ public class A1Adept {
 		}
 	System.out.println("Biggest: " + custItems[a].fname + " " + custItems[a].lname + " (" + String.format("%.2f", biggest) + ")");
 	System.out.println("Smallest: " + custItems[b].fname + " " + custItems[b].lname + " (" + String.format("%.2f", smallest) + ")");
+	System.out.println("Average: " + String.format("%.2f", average/peoples));
 	}	
 };
