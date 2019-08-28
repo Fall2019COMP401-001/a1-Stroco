@@ -22,15 +22,16 @@ public class A1Adept {
 		double biggest = Double.MIN_VALUE;
 		double average = 0;
 		double smallest = Double.MAX_VALUE;
+		int a = 0,b = 0;
 		// create count of how many items are in the store
 		int itemcount = scan.nextInt();
 		// create an array to store each item along with their properties (name and price)
 		ItemStuff storeItems[] = new ItemStuff[itemcount];
 		for (int i=0; i<itemcount; i++) {
-			String itemname = scan.next();
-			double priceitem = scan.nextDouble();
-			storeItems[i].foodies = itemname;
-			storeItems[i].price = priceitem;
+			ItemStuff items = new ItemStuff();
+			items.foodies = scan.next();
+			items.price = scan.nextDouble();
+			storeItems[i] = items;
 		}
 		// create a count for the number of customers
 		int peoples = scan.nextInt();
@@ -38,40 +39,40 @@ public class A1Adept {
 		Customers custItems[] = new Customers[peoples];
 		// a for loop that goes through the customers and their orders one at a time
 		for (int j=0; j<peoples; j++) {
-			custItems[j].fname = scan.next();
-			custItems[j].lname = scan.next();
+			Customers custnames = new Customers();
+			custnames.fname = scan.next();
+			custnames.lname = scan.next();
+			custItems[j] = custnames;
 			// create a count for amount of items bought by customer
-			int ibuy = scan.nextInt();
+			int ibuy = scan.nextInt();	
 			// new variable in for loop to loop through each item bought
 			for (int x=0; x<ibuy; x++) {
 				// indicate how much of each item was bought
 				int amount = scan.nextInt();
 				// sets a name for each item bought to relate to their price
 				String itemname = scan.next();
-				// new variable "y" to relate the price and names
-				for (int y=0; itemname == storeItems[y].foodies; y++)
-					custItems[j].totalPrice = amount*storeItems[y].price;
-				} 
-			// finds the total cost of all the customers combined
-			average = custItems[j].totalPrice + average;
-			// finds the highest amount spent
+				for (int i = 0; i < itemcount; i++) {
+					if (itemname.contentEquals(storeItems[i].foodies) ) {
+						custItems[j].totalPrice += amount * storeItems[i].price;
+					}
+				}
+				}
+		}
+		for (int j = 0; j<peoples; j++) {
+			average += custItems[j].totalPrice;
+		}
+	System.out.println("Average: " + String.format("%.2f", average/peoples));
+		
+	for (int j = 0; j<peoples; j++ ) {
 			if (custItems[j].totalPrice > biggest) {
 				biggest = custItems[j].totalPrice;
-			// finds the lowest amount spent
-			} 
-			if (custItems[j].totalPrice < smallest) {
-				 smallest = custItems[j].totalPrice;
+				a = j;
+			} else if (custItems[j].totalPrice < smallest) {
+				smallest = custItems[j].totalPrice;
+				b = j;
 			}
 		}
-for (int z=0; z<peoples; z++) {
-	if (biggest == custItems[z].totalPrice) {
-		System.out.println("Biggest: " + custItems[z].fname + "" + custItems[z].lname + "(" + custItems[z].totalPrice + ")");
-	} 
-	if (smallest == custItems[z].totalPrice) {
-		System.out.println("Smallest: " + custItems[z].fname + "" + custItems[z].lname + "(" + custItems[z].totalPrice + ")");
-	}
-}
-// figure out how to correspond most money spent and least money spent to a customer
-System.out.println("Average: " + average/peoples);
-	}
+	System.out.println("Biggest: " + custItems[a].fname + " " + custItems[a].lname + " (" + String.format("%.2f", biggest) + ")");
+	System.out.println("Smallest: " + custItems[b].fname + " " + custItems[b].lname + " (" + String.format("%.2f", smallest) + ")");
+	}	
 };
