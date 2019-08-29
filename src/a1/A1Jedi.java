@@ -10,8 +10,7 @@ public class A1Jedi {
 
 		// Your code follows here.
 		int storeItems = scan.nextInt();
-		int tempInt = 0;
-		int tempInt2 = 0;
+		
 		String stringarr[] = new String[storeItems];
 		int intarr[] = new int[storeItems];
 		for (int i = 0; i < storeItems; i++) {
@@ -21,6 +20,7 @@ public class A1Jedi {
 		}
 		int peoples = scan.nextInt();
 		int peoplesarr[] = new int[storeItems];
+		boolean boolarr[] = new boolean[storeItems];
 		for (int i = 0; i < peoples; i++) {
 			String fname = scan.next();
 			String lname = scan.next();
@@ -30,13 +30,20 @@ public class A1Jedi {
 				String name = scan.next();
 				for (int x = 0; x < storeItems; x++) {
 					if (name.contentEquals(stringarr[x])) {
-						peoplesarr[x]++;
-						intarr[x] += quant; 
+						intarr[x] += quant;
+						boolarr[x] = true;
+						}
 					}
 				}
+			for (int j = 0; j < storeItems; j++) {
+				if (boolarr[j]) {
+					peoplesarr[j]++;
+					boolarr[j] = false;
+				}
 			}
-		}
+			}
 		for (int x = 0; x < storeItems; x++) {
+				
 				if (peoplesarr[x] == 0) {
 					System.out.println("No customers bought " + stringarr[x]);
 				} else {
